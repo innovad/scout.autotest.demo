@@ -1,0 +1,14 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: org.eclipse.scout.autotest.client
+Bundle-SymbolicName: org.eclipse.scout.autotest.client;singleton:=true
+Bundle-Version: 1.0.0.qualifier
+Bundle-Activator: org.eclipse.scout.autotest.client.Activator
+Export-Package: org.eclipse.scout.autotest.client,
+ org.eclipse.scout.autotest.client.ui.desktop,
+ org.eclipse.scout.autotest.client.ui.desktop.outlines
+Require-Bundle: org.eclipse.core.runtime,
+ org.eclipse.scout.rt.client;visibility:=reexport,
+ org.eclipse.scout.autotest.shared
+Bundle-RequiredExecutionEnvironment: JavaSE-1.6
+Bundle-ActivationPolicy: lazy
