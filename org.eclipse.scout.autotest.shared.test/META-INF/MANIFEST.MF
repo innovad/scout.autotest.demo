@@ -1,0 +1,15 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Eclipse Scout Autotest Shared Tests
+Bundle-SymbolicName: org.eclipse.scout.autotest.shared.test;singleton:=true
+Bundle-Version: 1.0.0.qualifier
+Bundle-Activator: org.eclipse.autotest.shared.test.Activator
+Bundle-Vendor: Adrian Moser
+Require-Bundle: org.eclipse.core.runtime,
+ org.eclipse.scout.commons,
+ org.eclipse.scout.service,
+ org.eclipse.scout.rt.shared,
+ org.eclipse.scout.autotest.shared
+Bundle-RequiredExecutionEnvironment: JavaSE-1.7
+Bundle-ActivationPolicy: lazy
+Export-Package: org.eclipse.autotest.shared.test

@@ -1,0 +1,21 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Eclipse Scout Server Test App
+Bundle-SymbolicName: org.eclipse.scout.autotest.server.test;singleton:=true
+Bundle-Version: 1.0.0.qualifier
+Bundle-Activator: org.eclipse.autotest.server.test.Activator
+Bundle-Vendor: Adrian Moser
+Require-Bundle: org.eclipse.core.runtime,
+ org.eclipse.scout.rt.testing.server,
+ org.eclipse.scout.commons,
+ org.eclipse.scout.rt.server,
+ org.eclipse.scout.http.servletfilter,
+ org.eclipse.scout.autotest.shared.test,
+ org.eclipse.scout.autotest.server,
+ org.eclipse.scout.autotest.shared,
+ org.junit4
+Bundle-RequiredExecutionEnvironment: JavaSE-1.7
+Bundle-ActivationPolicy: lazy
+Import-Package: javax.servlet,
+ javax.servlet.http
+Export-Package: org.eclipse.autotest.server.test

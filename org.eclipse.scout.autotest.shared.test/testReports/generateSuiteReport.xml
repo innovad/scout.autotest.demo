@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<project basedir="." default="junitreportTarget" name="org.eclipse.scout.autotest.shared.test">
+
+  <property name="all.tests.report.file.name" value="TEST-allTests.xml"/>
+
+  <target name="junitreportTarget">
+    <junitreport tofile="${all.tests.report.file.name}">
+      <fileset dir="">
+        <include name="TEST-*.xml" />
+        <exclude name="${all.tests.report.file.name}"/>
+      </fileset>
+      <report format="frames" todir="html" />
+    </junitreport>
+
+    <mkdir dir="testResults" />
+    <move todir="testResults">
+      <fileset dir="">
+        <include name="TEST-*.xml" />
+        <exclude name="${all.tests.report.file.name}"/>
+      </fileset>
+    </move>
+
+  </target>
+
+  <target name="cleanup">
+    <delete includeemptydirs="true">
+      <fileset dir="${basedir}">
+        <exclude name="generateSuiteReport.xml" />
+      </fileset>
+    </delete>
+
+    <eclipse.refreshPath path.name="${basedir}" />
+  </target>
+</project>

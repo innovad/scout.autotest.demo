@@ -1,0 +1,16 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Eclipse Scout Client Test App
+Bundle-SymbolicName: org.eclipse.scout.autotest.client.test;singleton:=true
+Bundle-Version: 1.0.0.qualifier
+Bundle-Activator: org.eclipse.autotest.client.test.Activator
+Bundle-Vendor: Adrian Moser
+Require-Bundle: org.eclipse.core.runtime,
+ org.eclipse.scout.rt.testing.client,
+ org.eclipse.scout.rt.testing.shared,
+ org.eclipse.scout.rt.shared,
+ org.eclipse.scout.autotest.client,
+ org.junit4
+Bundle-RequiredExecutionEnvironment: JavaSE-1.7
+Bundle-ActivationPolicy: lazy
+Export-Package: org.eclipse.autotest.client.test

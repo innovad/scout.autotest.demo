@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<fragment>
+  <extension point="org.eclipse.equinox.http.registry.servlets">
+    <servlet alias="/test" class="org.eclipse.scout.rt.server.servlet.test.TestServlet">
+      <init-param name="session" value="org.eclipse.scout.autotest.server.ServerSession"/>
+      <init-param name="runAs" value="allen"/>
+    </servlet>
+  </extension>
+  <extension point="org.eclipse.scout.service.services">
+  </extension>
+</fragment>
