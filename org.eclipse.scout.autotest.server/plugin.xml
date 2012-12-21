@@ -24,6 +24,16 @@
             class="org.eclipse.scout.autotest.server.services.outline.StandardOutlineService"
             session="org.eclipse.scout.autotest.server.ServerSession">
       </service>
+      <service
+            factory="org.eclipse.scout.rt.server.services.ServerServiceFactory"
+            class="org.eclipse.scout.autotest.server.services.process.CompanyProcessService"
+            session="org.eclipse.scout.autotest.server.ServerSession">
+      </service>
+      <service
+            factory="org.eclipse.scout.rt.server.services.ServerServiceFactory"
+            class="org.eclipse.scout.autotest.server.services.common.sql.DerbySqlService"
+            session="org.eclipse.scout.autotest.server.ServerSession">
+      </service>
    </extension>
    <extension
          name=""

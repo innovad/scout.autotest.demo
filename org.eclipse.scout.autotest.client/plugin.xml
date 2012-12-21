@@ -8,6 +8,10 @@
             factory="org.eclipse.scout.rt.client.services.ClientProxyServiceFactory"
             class="org.eclipse.scout.autotest.shared.services.outline.IStandardOutlineService">
       </proxy>
+      <proxy
+            factory="org.eclipse.scout.rt.client.services.ClientProxyServiceFactory"
+            class="org.eclipse.scout.autotest.shared.services.process.ICompanyProcessService">
+      </proxy>
    </extension>
    <extension
          name=""
