@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <?pde version="3.5"?>
 
-<product name="AutoTest Server" id="org.eclipse.scout.autotest.server.product" application="org.eclipse.scout.autotest.server.app" useFeatures="false" includeLaunchers="true">
+<product name="AutoTest Server" uid="org.eclipse.scout.autotest.server.product" id="org.eclipse.scout.autotest.server.product" application="org.eclipse.scout.autotest.server.app" useFeatures="false" includeLaunchers="true">
 
    <configIni use="default">
       <linux>/org.eclipse.scout.autotest.server/products/production/config.ini</linux>
@@ -29,14 +29,13 @@
    </vm>
 
    <plugins>
-      <plugin id="org.eclipse.scout.autotest.server" fragment=""/>
-      <plugin id="org.eclipse.scout.autotest.shared" fragment=""/>
       <plugin id="javax.servlet"/>
-      <plugin id="org.apache.commons.codec"/>
+      <plugin id="org.apache.ant"/>
       <plugin id="org.apache.derby.jdbc_1082.fragment" fragment="true"/>
       <plugin id="org.eclipse.core.contenttype"/>
       <plugin id="org.eclipse.core.jobs"/>
       <plugin id="org.eclipse.core.runtime"/>
+      <plugin id="org.eclipse.core.runtime.compatibility"/>
       <plugin id="org.eclipse.core.runtime.compatibility.registry" fragment="true"/>
       <plugin id="org.eclipse.equinox.app"/>
       <plugin id="org.eclipse.equinox.common"/>
@@ -46,17 +45,20 @@
       <plugin id="org.eclipse.equinox.preferences"/>
       <plugin id="org.eclipse.equinox.registry"/>
       <plugin id="org.eclipse.equinox.security"/>
+      <plugin id="org.eclipse.equinox.security.win32.x86" fragment="true"/>
       <plugin id="org.eclipse.equinox.servletbridge"/>
       <plugin id="org.eclipse.osgi"/>
       <plugin id="org.eclipse.osgi.services"/>
+      <plugin id="org.eclipse.scout.autotest.server"/>
+      <plugin id="org.eclipse.scout.autotest.shared"/>
       <plugin id="org.eclipse.scout.commons"/>
       <plugin id="org.eclipse.scout.http.servletfilter"/>
-      <plugin id="org.eclipse.scout.jaxws216"/>
       <plugin id="org.eclipse.scout.rt.jdbc.derby"/>
       <plugin id="org.eclipse.scout.rt.server"/>
       <plugin id="org.eclipse.scout.rt.shared"/>
       <plugin id="org.eclipse.scout.service"/>
       <plugin id="org.eclipse.update.configurator"/>
+      <plugin id="org.hamcrest.core"/>
    </plugins>
 
 

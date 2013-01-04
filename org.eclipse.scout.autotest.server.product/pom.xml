@@ -1,0 +1,93 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<parent>
+		<groupId>org.eclipse.scout.autotest</groupId>
+		<artifactId>org.eclipse.scout.autotest</artifactId>
+		<version>1.0.0-SNAPSHOT</version>
+		<relativePath>../org.eclipse.scout.autotest.parent/</relativePath>
+	</parent>
+	<artifactId>org.eclipse.scout.autotest.server.product</artifactId>
+	<packaging>eclipse-repository</packaging>
+
+	<properties>
+		<product.id>org.eclipse.scout.autotest.server.product</product.id>
+		<product.outputDirectory>${project.build.directory}/products/${product.id}/win32/win32/x86</product.outputDirectory>
+		<product.finalName>autotest</product.finalName>
+	</properties>
+
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.eclipse.tycho</groupId>
+				<artifactId>tycho-p2-director-plugin</artifactId>
+				<executions>
+					<execution>
+						<id>materialize-products</id>
+						<phase>package</phase>
+						<goals>
+							<goal>materialize-products</goal>
+						</goals>
+					</execution>
+				</executions>
+				<configuration>
+					<products>
+						<product>
+							<id>${product.id}</id>
+						</product>
+					</products>
+				</configuration>
+			</plugin>
+
+			<!-- Workaround: Use an existing config.ini file (caused by the problem
+				that tycho will always generate a default one) -->
+			<plugin>
+				<artifactId>maven-resources-plugin</artifactId>
+				<executions>
+					<execution>
+						<phase>package</phase>
+						<goals>
+							<goal>copy-resources</goal>
+						</goals>
+						<configuration>
+							<overwrite>true</overwrite>
+							<resources>
+								<resource>
+									<directory>${project.build.directory}/../</directory>
+									<filtering>false</filtering>
+									<includes>
+										<include>config.ini</include>
+									</includes>
+								</resource>
+							</resources>
+							<outputDirectory>${product.outputDirectory}/configuration</outputDirectory>
+							<overwrite>true</overwrite>
+						</configuration>
+					</execution>
+				</executions>
+			</plugin>
+
+
+			<!-- Configure the assembly plugin to build the final server war file -->
+			<plugin>
+				<artifactId>maven-assembly-plugin</artifactId>
+				<configuration>
+					<descriptors>
+						<descriptor>assembly.xml</descriptor>
+					</descriptors>
+					<finalName>${product.finalName}</finalName>
+					<appendAssemblyId>false</appendAssemblyId>
+				</configuration>
+				<executions>
+					<execution>
+						<id>make-assembly</id>
+						<phase>package</phase>
+						<goals>
+							<goal>single</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
+		</plugins>
+	</build>
+</project>
