@@ -3,7 +3,7 @@ Bundle-ManifestVersion: 2
 Bundle-Name: Eclipse Scout Autotest Server Tests
 Bundle-SymbolicName: org.eclipse.scout.autotest.server.fragment;singleton:=true
 Bundle-Version: 1.0.0.qualifier
-Fragment-Host: org.eclipse.scout.autotest.server;bundle-version="1.0.0.qualifier"
+Fragment-Host: org.eclipse.scout.autotest.server
 Bundle-Vendor: Adrian Moser
 Require-Bundle: org.eclipse.core.runtime,
  org.eclipse.scout.commons,
@@ -12,5 +12,6 @@ Require-Bundle: org.eclipse.core.runtime,
  org.eclipse.scout.service,
  org.eclipse.scout.rt.testing.server,
  org.eclipse.scout.rt.testing.shared,
- org.junit4
+ org.junit4,
+ org.eclipse.scout.autotest.server.test
 Bundle-RequiredExecutionEnvironment: JavaSE-1.7

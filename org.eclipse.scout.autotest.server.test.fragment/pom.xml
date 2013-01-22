@@ -9,5 +9,26 @@
     <relativePath>../org.eclipse.scout.autotest.parent/</relativePath>
   </parent>
   <artifactId>org.eclipse.scout.autotest.server.fragment</artifactId>
-  <packaging>eclipse-plugin</packaging>
+  <packaging>eclipse-test-plugin</packaging>
 </project>
+
+<build>
+  <plugins>
+    <plugin>
+      <groupId>org.eclipse.tycho</groupId>
+      <artifactId>tycho-surefire-plugin</artifactId>
+      <version>${tycho.version}</version>
+      <configuration>
+        <useUIHarness>true</useUIHarness>
+        <useUIThread>false</useUIThread>
+        <redirectTestOutputToFile>true</redirectTestOutputToFile>
+      </configuration>
+      <dependencies>
+        <groupId>org.eclipse.scout.autotest</groupId>
+        <artifactId>org.eclipse.scout.autotest.server</artifactId>
+        <version>1.0.0</version>
+        <type>eclipse-plugin</type>
+      </dependencies>
+    </plugin>
+  </plugins>
+</build>
