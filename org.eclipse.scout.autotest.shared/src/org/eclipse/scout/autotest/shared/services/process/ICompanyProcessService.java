@@ -5,11 +5,11 @@ import org.eclipse.scout.service.IService;
 
 public interface ICompanyProcessService extends IService {
 
-  CountryFormData prepareCreate(CountryFormData formData) throws ProcessingException;
+  CompanyFormData prepareCreate(CompanyFormData formData) throws ProcessingException;
 
-  CountryFormData create(CountryFormData formData) throws ProcessingException;
+  CompanyFormData create(CompanyFormData formData) throws ProcessingException;
 
-  CountryFormData load(CountryFormData formData) throws ProcessingException;
+  CompanyFormData load(CompanyFormData formData) throws ProcessingException;
 
-  CountryFormData store(CountryFormData formData) throws ProcessingException;
+  CompanyFormData store(CompanyFormData formData) throws ProcessingException;
 }

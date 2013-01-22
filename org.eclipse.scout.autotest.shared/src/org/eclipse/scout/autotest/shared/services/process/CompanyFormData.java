@@ -5,10 +5,10 @@ import org.eclipse.scout.rt.shared.data.form.fields.AbstractValueFieldData;
 import org.eclipse.scout.rt.shared.data.form.AbstractFormData;
 import org.eclipse.scout.rt.shared.data.form.properties.AbstractPropertyData;
 
-public class CountryFormData extends AbstractFormData {
+public class CompanyFormData extends AbstractFormData {
   private static final long serialVersionUID = 1L;
 
-  public CountryFormData() {
+  public CompanyFormData() {
   }
 
   public CompanyNrProperty getCompanyNrProperty() {

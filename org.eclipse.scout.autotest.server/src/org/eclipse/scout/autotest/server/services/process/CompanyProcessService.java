@@ -3,7 +3,7 @@ package org.eclipse.scout.autotest.server.services.process;
 import org.eclipse.scout.autotest.shared.security.CreateCompanyPermission;
 import org.eclipse.scout.autotest.shared.security.ReadCompanyPermission;
 import org.eclipse.scout.autotest.shared.security.UpdateCompanyPermission;
-import org.eclipse.scout.autotest.shared.services.process.CountryFormData;
+import org.eclipse.scout.autotest.shared.services.process.CompanyFormData;
 import org.eclipse.scout.autotest.shared.services.process.ICompanyProcessService;
 import org.eclipse.scout.commons.exception.ProcessingException;
 import org.eclipse.scout.commons.exception.VetoException;
@@ -15,7 +15,7 @@ import org.eclipse.scout.service.AbstractService;
 public class CompanyProcessService extends AbstractService implements ICompanyProcessService {
 
   @Override
-  public CountryFormData prepareCreate(CountryFormData formData) throws ProcessingException {
+  public CompanyFormData prepareCreate(CompanyFormData formData) throws ProcessingException {
     if (!ACCESS.check(new CreateCompanyPermission())) {
       throw new VetoException(TEXTS.get("AuthorizationFailed"));
     }
@@ -23,7 +23,7 @@ public class CompanyProcessService extends AbstractService implements ICompanyPr
   }
 
   @Override
-  public CountryFormData create(CountryFormData formData) throws ProcessingException {
+  public CompanyFormData create(CompanyFormData formData) throws ProcessingException {
     if (!ACCESS.check(new CreateCompanyPermission())) {
       throw new VetoException(TEXTS.get("AuthorizationFailed"));
     }
@@ -40,7 +40,7 @@ public class CompanyProcessService extends AbstractService implements ICompanyPr
   }
 
   @Override
-  public CountryFormData load(CountryFormData formData) throws ProcessingException {
+  public CompanyFormData load(CompanyFormData formData) throws ProcessingException {
     if (!ACCESS.check(new ReadCompanyPermission())) {
       throw new VetoException(TEXTS.get("AuthorizationFailed"));
     }
@@ -56,7 +56,7 @@ public class CompanyProcessService extends AbstractService implements ICompanyPr
   }
 
   @Override
-  public CountryFormData store(CountryFormData formData) throws ProcessingException {
+  public CompanyFormData store(CompanyFormData formData) throws ProcessingException {
     if (!ACCESS.check(new UpdateCompanyPermission())) {
       throw new VetoException(TEXTS.get("AuthorizationFailed"));
     }

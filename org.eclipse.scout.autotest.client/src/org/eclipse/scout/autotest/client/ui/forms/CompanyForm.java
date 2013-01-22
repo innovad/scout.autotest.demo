@@ -5,7 +5,7 @@ import org.eclipse.scout.autotest.client.ui.forms.CompanyForm.MainBox.NameField;
 import org.eclipse.scout.autotest.client.ui.forms.CompanyForm.MainBox.OkButton;
 import org.eclipse.scout.autotest.client.ui.forms.CompanyForm.MainBox.ShortNameField;
 import org.eclipse.scout.autotest.shared.security.UpdateCompanyPermission;
-import org.eclipse.scout.autotest.shared.services.process.CountryFormData;
+import org.eclipse.scout.autotest.shared.services.process.CompanyFormData;
 import org.eclipse.scout.autotest.shared.services.process.ICompanyProcessService;
 import org.eclipse.scout.commons.annotations.FormData;
 import org.eclipse.scout.commons.annotations.FormData.SdkCommand;
@@ -20,7 +20,7 @@ import org.eclipse.scout.rt.client.ui.form.fields.stringfield.AbstractStringFiel
 import org.eclipse.scout.rt.shared.TEXTS;
 import org.eclipse.scout.service.SERVICES;
 
-@FormData(value = CountryFormData.class, sdkCommand = SdkCommand.CREATE)
+@FormData(value = CompanyFormData.class, sdkCommand = SdkCommand.CREATE)
 public class CompanyForm extends AbstractForm {
 
   private Long companyNr;
@@ -110,7 +110,7 @@ public class CompanyForm extends AbstractForm {
     @Override
     public void execLoad() throws ProcessingException {
       ICompanyProcessService service = SERVICES.getService(ICompanyProcessService.class);
-      CountryFormData formData = new CountryFormData();
+      CompanyFormData formData = new CompanyFormData();
       exportFormData(formData);
       formData = service.load(formData);
       importFormData(formData);
@@ -120,7 +120,7 @@ public class CompanyForm extends AbstractForm {
     @Override
     public void execStore() throws ProcessingException {
       ICompanyProcessService service = SERVICES.getService(ICompanyProcessService.class);
-      CountryFormData formData = new CountryFormData();
+      CompanyFormData formData = new CompanyFormData();
       exportFormData(formData);
       formData = service.store(formData);
     }
@@ -131,7 +131,7 @@ public class CompanyForm extends AbstractForm {
     @Override
     public void execLoad() throws ProcessingException {
       ICompanyProcessService service = SERVICES.getService(ICompanyProcessService.class);
-      CountryFormData formData = new CountryFormData();
+      CompanyFormData formData = new CompanyFormData();
       exportFormData(formData);
       formData = service.prepareCreate(formData);
       importFormData(formData);
@@ -140,7 +140,7 @@ public class CompanyForm extends AbstractForm {
     @Override
     public void execStore() throws ProcessingException {
       ICompanyProcessService service = SERVICES.getService(ICompanyProcessService.class);
-      CountryFormData formData = new CountryFormData();
+      CompanyFormData formData = new CompanyFormData();
       exportFormData(formData);
       formData = service.create(formData);
     }
