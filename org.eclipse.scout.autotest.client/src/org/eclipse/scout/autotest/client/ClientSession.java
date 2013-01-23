@@ -45,7 +45,7 @@ public class ClientSession extends AbstractClientSession {
     String backendUrl = getBundle().getBundleContext().getProperty("server.url");
     if (StringUtility.isNullOrEmpty(backendUrl)) {
       // workaround for maven surfire
-      backendUrl = "http://localhost:8080/autotest/process";
+      backendUrl = "http://localhost:18080/autotest/process";
     }
     setServiceTunnel(new HttpServiceTunnel(this, backendUrl));
 
