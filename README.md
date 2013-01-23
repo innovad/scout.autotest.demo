@@ -25,3 +25,7 @@ Eclipse Scout Maven Tycho Build
 
 Eclipse Scout Testing
 - Forum: http://www.eclipse.org/forums/index.php/mv/msg/262115/757087/#msg_757087
+
+Maven
+- Maven Tycho Reference Card: http://wiki.eclipse.org/Tycho/Reference_Card
+- Maven Jetty Plugin: http://docs.codehaus.org/display/JETTY/Maven+Jetty+Plugin (currently I am using Jetty 6)
