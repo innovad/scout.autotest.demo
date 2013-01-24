@@ -11,7 +11,6 @@
 package org.eclipse.scout.autotest.client;
 
 import org.eclipse.scout.autotest.client.ui.desktop.Desktop;
-import org.eclipse.scout.commons.StringUtility;
 import org.eclipse.scout.commons.annotations.FormData;
 import org.eclipse.scout.commons.exception.ProcessingException;
 import org.eclipse.scout.commons.logger.IScoutLogger;
@@ -43,10 +42,6 @@ public class ClientSession extends AbstractClientSession {
   @Override
   public void execLoadSession() throws ProcessingException {
     String backendUrl = getBundle().getBundleContext().getProperty("server.url");
-    if (StringUtility.isNullOrEmpty(backendUrl)) {
-      // workaround for maven surfire
-      backendUrl = "http://localhost:18080/autotest/process";
-    }
     setServiceTunnel(new HttpServiceTunnel(this, backendUrl));
 
     //pre-load all known code types

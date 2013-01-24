@@ -24,12 +24,6 @@
         <useUIThread>false</useUIThread>
         <redirectTestOutputToFile>true</redirectTestOutputToFile>
       </configuration>
-      <dependencies>
-        <groupId>org.eclipse.scout.autotest</groupId>
-        <artifactId>org.eclipse.scout.autotest.shared</artifactId>
-        <version>1.0.0</version>
-        <type>eclipse-plugin</type>
-      </dependencies>
     </plugin>
   </plugins>
 </build>

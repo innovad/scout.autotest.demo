@@ -9,69 +9,59 @@
     <version>1.0.0-SNAPSHOT</version>
     <relativePath>../org.eclipse.scout.autotest.parent/</relativePath>
   </parent>
-  <artifactId>org.eclipse.scout.autotest.client.fragment</artifactId>
+  <artifactId>org.eclipse.scout.autotest.client.test.fragment</artifactId>
   <packaging>eclipse-test-plugin</packaging>
-  <profiles>
-    <profile>
-      <id>backend</id>
-      <activation>
-        <activeByDefault>true</activeByDefault>
-      </activation>
-      <build>
-        <plugins>
-          <plugin>
-            <groupId>org.mortbay.jetty</groupId>
-            <artifactId>maven-jetty-plugin</artifactId>
-            <version>6.1.26</version>
-            <configuration>
-              <webApp>${basedir}/../org.eclipse.scout.autotest.server.product/target/autotest.war</webApp>
-              <scanIntervalSeconds>0</scanIntervalSeconds>
-              <connectors>
-                <connector implementation="org.mortbay.jetty.nio.SelectChannelConnector">
-                  <port>18080</port>
-                </connector>
-              </connectors>
-              <stopKey>stopkey</stopKey>
-              <stopPort>9999</stopPort>
-              <contextPath>autotest</contextPath>
-            </configuration>
-            <executions>
-              <execution>
-                <id>start-jetty</id>
-                <phase>pre-integration-test</phase>
-                <goals>
-                  <goal>run-war</goal>
-                </goals>
-                <configuration>
-                  <scanIntervalSeconds>0</scanIntervalSeconds>
-                  <daemon>true</daemon>
-                </configuration>
-              </execution>
-            </executions>
-          </plugin>
-        </plugins>
-      </build>
-    </profile>
-  </profiles>
-</project>
 
-<build>
-  <plugins>
-    <plugin>
-      <groupId>org.eclipse.tycho</groupId>
-      <artifactId>tycho-surefire-plugin</artifactId>
-      <version>${tycho.version}</version>
-      <configuration>
-        <useUIHarness>true</useUIHarness>
-        <useUIThread>false</useUIThread>
-        <redirectTestOutputToFile>true</redirectTestOutputToFile>
-      </configuration>
-      <dependencies>
-        <groupId>org.eclipse.scout.autotest</groupId>
-        <artifactId>org.eclipse.scout.autotest.client</artifactId>
-        <version>1.0.0</version>
-        <type>eclipse-plugin</type>
-      </dependencies>
-    </plugin>
-  </plugins>
-</build>
+  <properties>
+    <server.url>http://localhost:18080/autotest/process</server.url>
+  </properties>
+
+  <build>
+    <plugins>
+
+      <plugin>
+        <groupId>org.mortbay.jetty</groupId>
+        <artifactId>maven-jetty-plugin</artifactId>
+        <version>6.1.26</version>
+        <configuration>
+          <webApp>${basedir}/../org.eclipse.scout.autotest.server.product/target/autotest.war</webApp>
+          <scanIntervalSeconds>0</scanIntervalSeconds>
+          <connectors>
+            <connector implementation="org.mortbay.jetty.nio.SelectChannelConnector">
+              <port>18080</port>
+            </connector>
+          </connectors>
+          <stopKey>stopkey</stopKey>
+          <stopPort>9999</stopPort>
+          <contextPath>autotest</contextPath>
+        </configuration>
+        <executions>
+          <execution>
+            <id>start-jetty</id>
+            <phase>pre-integration-test</phase>
+            <goals>
+              <goal>run-war</goal>
+            </goals>
+            <configuration>
+              <scanIntervalSeconds>0</scanIntervalSeconds>
+              <daemon>true</daemon>
+            </configuration>
+          </execution>
+        </executions>
+      </plugin>
+
+
+      <plugin>
+        <groupId>org.eclipse.tycho</groupId>
+        <artifactId>tycho-surefire-plugin</artifactId>
+        <version>${tycho.version}</version>
+        <configuration>
+          <systemProperties>
+            <server.url>${server.url}</server.url>
+          </systemProperties>
+        </configuration>
+      </plugin>
+    </plugins>
+  </build>
+
+</project>
