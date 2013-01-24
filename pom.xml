@@ -18,19 +18,19 @@
 	</properties>
 
 	<modules>
-		<module>../org.eclipse.scout.autotest.target</module>
-		<module>../org.eclipse.scout.autotest.client</module>
-		<module>../org.eclipse.scout.autotest.server</module>
-		<module>../org.eclipse.scout.autotest.shared</module>
-		<module>../org.eclipse.scout.autotest.client.test</module>
-		<module>../org.eclipse.scout.autotest.server.test</module>
-		<module>../org.eclipse.scout.autotest.shared.test</module>
-		<module>../org.eclipse.scout.autotest.server.product</module>
-		<module>../org.eclipse.scout.autotest.server.test.fragment</module>
-		<module>../org.eclipse.scout.autotest.client.test.fragment</module>
-		<module>../org.eclipse.scout.autotest.shared.test.fragment</module>
-		<module>../org.eclipse.scout.autotest.ui.swing</module>
-		<module>../org.eclipse.scout.autotest.ui.swing.product</module>
+		<module>org.eclipse.scout.autotest.target</module>
+		<module>org.eclipse.scout.autotest.client</module>
+		<module>org.eclipse.scout.autotest.server</module>
+		<module>org.eclipse.scout.autotest.shared</module>
+		<module>org.eclipse.scout.autotest.client.test</module>
+		<module>org.eclipse.scout.autotest.server.test</module>
+		<module>org.eclipse.scout.autotest.shared.test</module>
+		<module>org.eclipse.scout.autotest.server.product</module>
+		<module>org.eclipse.scout.autotest.server.test.fragment</module>
+		<module>org.eclipse.scout.autotest.client.test.fragment</module>
+		<module>org.eclipse.scout.autotest.shared.test.fragment</module>
+		<module>org.eclipse.scout.autotest.ui.swing</module>
+		<module>org.eclipse.scout.autotest.ui.swing.product</module>
 	</modules>
 
 	<profiles>
