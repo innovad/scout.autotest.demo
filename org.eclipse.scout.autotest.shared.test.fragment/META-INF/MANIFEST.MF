@@ -8,4 +8,4 @@ Fragment-Host: org.eclipse.scout.autotest.shared
 Require-Bundle: org.eclipse.core.runtime,
  org.junit4,
  org.eclipse.scout.rt.testing.shared
-Bundle-RequiredExecutionEnvironment: JavaSE-1.7
+Bundle-RequiredExecutionEnvironment: JavaSE-1.6

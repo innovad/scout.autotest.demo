@@ -10,5 +10,5 @@ Require-Bundle: org.eclipse.core.runtime,
  org.eclipse.scout.rt.testing.client,
  org.eclipse.scout.rt.testing.shared,
  org.eclipse.scout.autotest.shared.test
-Bundle-RequiredExecutionEnvironment: JavaSE-1.7
+Bundle-RequiredExecutionEnvironment: JavaSE-1.6
 Bundle-ActivationPolicy: lazy
