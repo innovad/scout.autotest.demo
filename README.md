@@ -3,6 +3,9 @@ scout.autotest.demo
 
 Scout Sample Application with JUnit Tests, Maven Surfire Test Execution and Maven Tycho Build
 
+Build:
+[![Build Status](https://buildhive.cloudbees.com/job/innovad/job/scout.autotest.demo/badge/icon)](https://buildhive.cloudbees.com/job/innovad/job/scout.autotest.demo/)
+
 How to:
 
 - Fetch the GIT repository into a Eclipse 3.7/Scout 3.8 workspace
