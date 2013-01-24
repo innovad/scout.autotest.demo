@@ -9,7 +9,7 @@
     <version>1.0.0-SNAPSHOT</version>
     <relativePath>../org.eclipse.scout.autotest.parent/</relativePath>
   </parent>
-  <artifactId>org.eclipse.scout.autotest.server.fragment</artifactId>
+  <artifactId>org.eclipse.scout.autotest.server.test.fragment</artifactId>
   <packaging>eclipse-test-plugin</packaging>
 
   <build>

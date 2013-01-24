@@ -1,7 +1,7 @@
 Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: Eclipse Scout Autotest Test Shared
-Bundle-SymbolicName: org.eclipse.scout.autotest.shared.fragment;singleton:=true
+Bundle-SymbolicName: org.eclipse.scout.autotest.shared.test.fragment;singleton:=true
 Bundle-Version: 1.0.0.qualifier
 Bundle-Vendor: Adrian Moser
 Fragment-Host: org.eclipse.scout.autotest.shared
