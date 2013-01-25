@@ -1,5 +1,10 @@
 package org.eclipse.scout.autotest.server.services.common.sql;
 
+import java.io.File;
+
+import org.eclipse.core.runtime.Platform;
+import org.eclipse.scout.autotest.server.Activator;
+import org.eclipse.scout.commons.StringUtility;
 import org.eclipse.scout.rt.services.common.jdbc.AbstractDerbySqlService;
 import org.eclipse.scout.service.IService2;
 
@@ -7,7 +12,13 @@ public class DerbySqlService extends AbstractDerbySqlService implements IService
 
   @Override
   protected String getConfiguredJdbcMappingName() {
-    return "jdbc:derby:C:\\DerbyDB";
+    String derbyPath = Platform.getBundle(Activator.PLUGIN_ID).getBundleContext().getProperty("derby.path");
+    File f = new File(".");
+    String path = f.getAbsolutePath();
+    path = StringUtility.replace(path, "org.eclipse.scout.autotest.server.test.fragment", "org.eclipse.scout.autotest.parent");
+    path = StringUtility.removeSuffixes(path, ".");
+    derbyPath = path + "DerbyDB";
+    return "jdbc:derby:" + derbyPath;
   }
 
   @Override
