@@ -17,10 +17,19 @@ public class DerbySqlService extends AbstractDerbySqlService implements IService
       // Workaround to find DerbyDB during build
       File f = new File(".");
       String path = f.getAbsolutePath();
-      path = StringUtility.replace(path, "org.eclipse.scout.autotest.server.test.fragment", "org.eclipse.scout.autotest.parent");
-      path = StringUtility.replace(path, "org.eclipse.scout.autotest.client.test.fragment", "org.eclipse.scout.autotest.parent");
       path = StringUtility.removeSuffixes(path, ".");
-      derbyPath = path + "DerbyDB";
+      String server = "org.eclipse.scout.autotest.server.test.fragment";
+      String parent = "org.eclipse.scout.autotest.parent";
+      if (path.contains(server)) {
+        path = StringUtility.replace(path, server, "org.eclipse.scout.autotest.parent");
+        derbyPath = path + "DerbyDB";
+      }
+      else if (path.contains(parent)) {
+        derbyPath = path + "DerbyDB";
+      }
+      else {
+        derbyPath = path + "org.eclipse.scout.autotest.parent" + File.separator + "DerbyDB";
+      }
       System.out.println("DB Path: " + derbyPath);
       // End workaround
     }
