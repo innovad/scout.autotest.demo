@@ -9,7 +9,8 @@ Build:
 
 How to:
 
-- Fetch the GIT repository into a Eclipse 3.7/Scout 3.8 workspace
+- Fetch the GIT repository into a Eclipse 4.2 Juno/Scout 3.9 workspace
+- Eclipse Scout 3.9 Milestone Update Site: http://download.eclipse.org/scout/releases/3.9
 - In directory org.eclipse.scout.autotest.parent, start "mvn clean install"
 
 Install Derby DB
