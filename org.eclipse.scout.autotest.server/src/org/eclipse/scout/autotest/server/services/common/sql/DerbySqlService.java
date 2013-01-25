@@ -13,12 +13,17 @@ public class DerbySqlService extends AbstractDerbySqlService implements IService
   @Override
   protected String getConfiguredJdbcMappingName() {
     String derbyPath = Platform.getBundle(Activator.PLUGIN_ID).getBundleContext().getProperty("derby.path");
-    File f = new File(".");
-    String path = f.getAbsolutePath();
-    path = StringUtility.replace(path, "org.eclipse.scout.autotest.server.test.fragment", "org.eclipse.scout.autotest.parent");
-    path = StringUtility.removeSuffixes(path, ".");
-    derbyPath = path + "DerbyDB";
-    System.out.println("DB Path: " + derbyPath);
+    if (StringUtility.isNullOrEmpty(derbyPath)) {
+      // Workaround to find DerbyDB during build
+      File f = new File(".");
+      String path = f.getAbsolutePath();
+      path = StringUtility.replace(path, "org.eclipse.scout.autotest.server.test.fragment", "org.eclipse.scout.autotest.parent");
+      path = StringUtility.replace(path, "org.eclipse.scout.autotest.client.test.fragment", "org.eclipse.scout.autotest.parent");
+      path = StringUtility.removeSuffixes(path, ".");
+      derbyPath = path + "DerbyDB";
+      System.out.println("DB Path: " + derbyPath);
+      // End workaround
+    }
     return "jdbc:derby:" + derbyPath;
   }
 
