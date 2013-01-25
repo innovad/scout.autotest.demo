@@ -15,6 +15,7 @@ public class DerbySqlService extends AbstractDerbySqlService implements IService
     String derbyPath = Platform.getBundle(Activator.PLUGIN_ID).getBundleContext().getProperty("derby.path");
     if (StringUtility.isNullOrEmpty(derbyPath)) {
       // Workaround to find DerbyDB during build
+      // TODO: make this configurable, use same parent pom for Buildhive and manual build
       File f = new File(".");
       String path = f.getAbsolutePath();
       path = StringUtility.removeSuffixes(path, ".");
