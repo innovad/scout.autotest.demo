@@ -12,7 +12,7 @@
 
 	<properties>
 		<product.id>org.eclipse.scout.autotest.server.product</product.id>
-		<product.outputDirectory>${project.build.directory}/products/${product.id}/win32/win32/x86</product.outputDirectory>
+		<product.outputDirectory>${project.build.directory}/products/${product.id}/${target.os}/${target.ws}/${target.arch}</product.outputDirectory>
 		<product.finalName>autotest</product.finalName>
 	</properties>
 
