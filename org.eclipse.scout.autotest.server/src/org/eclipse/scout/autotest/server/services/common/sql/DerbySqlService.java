@@ -18,6 +18,7 @@ public class DerbySqlService extends AbstractDerbySqlService implements IService
     path = StringUtility.replace(path, "org.eclipse.scout.autotest.server.test.fragment", "org.eclipse.scout.autotest.parent");
     path = StringUtility.removeSuffixes(path, ".");
     derbyPath = path + "DerbyDB";
+    System.out.println("DB Path: " + derbyPath);
     return "jdbc:derby:" + derbyPath;
   }
 
