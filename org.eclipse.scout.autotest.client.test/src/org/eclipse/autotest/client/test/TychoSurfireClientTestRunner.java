@@ -17,6 +17,8 @@ public class TychoSurfireClientTestRunner extends ScoutClientTestRunner {
    */
   public TychoSurfireClientTestRunner(Class<?> klass) throws InitializationError {
     super(klass);
+    AutotestClientUtility.installNetAuthenticator();
+    AutotestClientUtility.installCookieStore();
   }
 
 }

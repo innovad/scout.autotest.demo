@@ -9,6 +9,7 @@ Require-Bundle: org.eclipse.core.runtime,
  org.junit4,
  org.eclipse.scout.rt.testing.client,
  org.eclipse.scout.rt.testing.shared,
- org.eclipse.scout.autotest.shared.test
+ org.eclipse.scout.autotest.shared.test,
+ org.eclipse.scout.autotest.client.test
 Bundle-RequiredExecutionEnvironment: JavaSE-1.6
 Bundle-ActivationPolicy: lazy

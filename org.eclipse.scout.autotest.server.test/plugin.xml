@@ -8,8 +8,8 @@
    </extension>
 
    <extension id="product" point="org.eclipse.core.runtime.products">
-      <product application="org.eclipse.scout.autotest.server.test.app" name="Eclipse Scout Server Test App">
-         <property name="appName" value="Eclipse Scout Server Test App" />
+      <product application="org.eclipse.scout.autotest.server.test.app" name="Eclipse Scout Autotest Server Backend for Client Tests">
+         <property name="appName" value="Eclipse Scout Autotest Server Backend for Client Tests" />
       </product>
    </extension>
 

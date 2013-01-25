@@ -22,6 +22,7 @@
 		<module>../org.eclipse.scout.autotest.client</module>
 		<module>../org.eclipse.scout.autotest.server</module>
 		<module>../org.eclipse.scout.autotest.shared</module>
+		<module>../org.eclipse.scout.autotest.client.feature</module>
 		<module>../org.eclipse.scout.autotest.client.test</module>
 		<module>../org.eclipse.scout.autotest.server.test</module>
 		<module>../org.eclipse.scout.autotest.shared.test</module>
