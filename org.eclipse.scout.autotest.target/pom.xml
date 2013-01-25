@@ -22,7 +22,7 @@
             <configuration>
               <artifacts>
                 <artifact>
-                  <file>autotest.target</file>
+                  <file>org.eclipse.scout.autotest.target</file>
                   <type>target</type>
                   <classifier>autotest</classifier>
                 </artifact>
