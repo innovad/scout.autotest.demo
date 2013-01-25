@@ -4,7 +4,8 @@ scout.autotest.demo
 Scout Sample Application with JUnit Tests, Maven Surfire Test Execution and Maven Tycho Build
 
 Build:
-[![Build Status](https://buildhive.cloudbees.com/job/innovad/job/scout.autotest.demo/badge/icon)](https://buildhive.cloudbees.com/job/innovad/job/scout.autotest.demo/)
+- [![Build Status](https://buildhive.cloudbees.com/job/innovad/job/scout.autotest.demo/badge/icon)](https://buildhive.cloudbees.com/job/innovad/job/scout.autotest.demo/)
+- Public Build on <a href="https://buildhive.cloudbees.com/job/innovad/job/scout.autotest.demo/">Buildhive</a>
 
 How to:
 
