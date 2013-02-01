@@ -2,15 +2,15 @@ package org.eclipse.autotest.client;
 
 import junit.framework.Assert;
 
-import org.eclipse.autotest.client.test.TychoSurfireClientTestRunner;
+import org.eclipse.autotest.client.test.TychoSurefireClientTestRunner;
 import org.eclipse.scout.autotest.client.ClientSession;
 import org.eclipse.scout.autotest.client.ui.desktop.outlines.pages.CompanyTablePage;
 import org.eclipse.scout.rt.client.ui.desktop.IDesktop;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 
-@RunWith(TychoSurfireClientTestRunner.class)
-@TychoSurfireClientTestRunner.ClientTest(clientSessionClass = ClientSession.class, runAs = "admin")
+@RunWith(TychoSurefireClientTestRunner.class)
+@TychoSurefireClientTestRunner.ClientTest(clientSessionClass = ClientSession.class, runAs = "admin")
 public class ClientSessionTest {
 
   @Test

@@ -40,7 +40,7 @@ import org.junit.runners.model.Statement;
  * JUnit test runner that runs the annotated test class within a Scout client job. Test cases executed by this runner
  * may be configured with a {@link ClientTest} annotation.
  */
-public class TychoSurfireClientTestRunner extends BlockJUnit4ClassRunner {
+public class TychoSurefireClientTestRunner extends BlockJUnit4ClassRunner {
 
   private static ITestClientSessionProvider s_defaultClientSessionProvider = new DefaultTestClientSessionProvider();
   private static Class<? extends IClientSession> s_defaultClientSessionClass;
@@ -71,11 +71,13 @@ public class TychoSurfireClientTestRunner extends BlockJUnit4ClassRunner {
    * @param klass
    * @throws InitializationError
    */
-  public TychoSurfireClientTestRunner(Class<?> klass) throws InitializationError {
+  public TychoSurefireClientTestRunner(Class<?> klass) throws InitializationError {
     super(klass);
 
-    // *** Must inject stuff before Runner instantiation ***
-    setDefaultClientSessionClass(ClientSession.class);
+    // *** Must inject stuff before Client Session instantiation ***
+    if (getDefaultClientSessionClass() == null) {
+      setDefaultClientSessionClass(ClientSession.class);
+    }
     AutotestClientUtility.installCookieStore();
     AutotestClientUtility.installNetAuthenticator();
     // ***
@@ -196,7 +198,7 @@ public class TychoSurfireClientTestRunner extends BlockJUnit4ClassRunner {
     // sanity check
     if (clientSessionClass == null) {
       throw new InitializationError("Client session class is not set. Either set the default client session using '"
-          + TychoSurfireClientTestRunner.class.getSimpleName()
+          + TychoSurefireClientTestRunner.class.getSimpleName()
           + ".setDefaultClientSessionClass' or annotate your test class and/or method with '"
           + ClientTest.class.getSimpleName() + "'");
     }

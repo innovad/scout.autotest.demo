@@ -3,7 +3,7 @@
  */
 package org.eclipse.autotest.client;
 
-import org.eclipse.autotest.client.test.TychoSurfireClientTestRunner;
+import org.eclipse.autotest.client.test.TychoSurefireClientTestRunner;
 import org.eclipse.scout.autotest.client.ui.forms.CompanyForm;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -11,7 +11,7 @@ import org.junit.runner.RunWith;
 /**
  * @author amo
  */
-@RunWith(TychoSurfireClientTestRunner.class)
+@RunWith(TychoSurefireClientTestRunner.class)
 public class CompanyFormTest {
 
   @Test
