@@ -40,7 +40,7 @@
          point="org.eclipse.equinox.http.registry.servlets">
       <servlet
             alias="/process"
-            class="org.eclipse.scout.rt.server.ServiceTunnelServlet">
+            class="org.eclipse.scout.autotest.server.AutotestServiceTunnelServlet">
          <init-param
                name="min-version"
                value="0.0.0">

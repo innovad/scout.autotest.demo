@@ -45,7 +45,8 @@ public final class AutotestClientUtility {
     MultiClientAuthenticator.addUser("blake", "blake");
     MultiClientAuthenticator.setDefaultUser("admin");
 
-    reg = bundleContext.registerService(java.net.Authenticator.class.getName(), new MultiClientAuthenticator(), map);
+    MultiClientAuthenticator multiClientAuthenticator = new MultiClientAuthenticator();
+    reg = bundleContext.registerService(java.net.Authenticator.class.getName(), multiClientAuthenticator, map);
 
     // start the netBundle, it is not started from OSGI because no references exists
     Bundle netBundle = Platform.getBundle("org.eclipse.scout.net");

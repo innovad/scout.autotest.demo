@@ -11,7 +11,7 @@ import org.junit.runner.RunWith;
 
 @RunWith(TychoSurfireServerTestRunner.class)
 @ScoutServerTestRunner.ServerTest(serverSessionClass = ServerSession.class, runAs = "admin")
-public final class ServerTest {
+public final class ServerServiceTest {
 
   @Test
   public void test() throws Exception {

@@ -134,6 +134,15 @@
 
 				<plugin>
 					<groupId>org.eclipse.tycho</groupId>
+					<artifactId>tycho-surefire-plugin</artifactId>
+					<version>${tycho.version}</version>
+					<configuration>
+<!-- 						<debugPort>18081</debugPort> -->
+					</configuration>
+				</plugin>
+
+				<plugin>
+					<groupId>org.eclipse.tycho</groupId>
 					<artifactId>tycho-p2-director-plugin</artifactId>
 					<version>${tycho.version}</version>
 				</plugin>
