@@ -18,10 +18,12 @@ import java.lang.annotation.ElementType;
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
 import java.lang.annotation.Target;
+import java.lang.reflect.Modifier;
 import java.util.ArrayList;
 import java.util.List;
 
-import org.eclipse.scout.autotest.client.ClientSession;
+import org.eclipse.scout.commons.logger.IScoutLogger;
+import org.eclipse.scout.commons.logger.ScoutLogManager;
 import org.eclipse.scout.rt.client.IClientSession;
 import org.eclipse.scout.rt.testing.shared.services.common.exceptionhandler.ProcessingRuntimeExceptionUnwrappingStatement;
 import org.eclipse.scout.testing.client.DefaultTestClientSessionProvider;
@@ -44,6 +46,13 @@ public class TychoSurefireClientTestRunner extends BlockJUnit4ClassRunner {
 
   private static ITestClientSessionProvider s_defaultClientSessionProvider = new DefaultTestClientSessionProvider();
   private static Class<? extends IClientSession> s_defaultClientSessionClass;
+  private static final IScoutLogger LOG;
+  private static final IClientTestEnvironmentFactory FACTORY;
+
+  static {
+    LOG = ScoutLogManager.getLogger(TychoSurefireClientTestRunner.class);
+    FACTORY = createClientTestEnvironmentFactory();
+  }
 
   private final IClientSession m_clientSession;
 
@@ -75,11 +84,11 @@ public class TychoSurefireClientTestRunner extends BlockJUnit4ClassRunner {
     super(klass);
 
     // *** Must inject stuff before Client Session instantiation ***
-    if (getDefaultClientSessionClass() == null) {
-      setDefaultClientSessionClass(ClientSession.class);
+    if (FACTORY != null) {
+      setDefaultClientSessionClass(FACTORY.getDefaultClientSessionClass());
+      FACTORY.installCookieStore();
+      FACTORY.installNetAuthenticator();
     }
-    AutotestClientUtility.installCookieStore();
-    AutotestClientUtility.installNetAuthenticator();
     // ***
 
     try {
@@ -255,4 +264,32 @@ public class TychoSurefireClientTestRunner extends BlockJUnit4ClassRunner {
     }
     return forceCreateNewSession;
   }
+
+  private static IClientTestEnvironmentFactory createClientTestEnvironmentFactory() {
+    IClientTestEnvironmentFactory factory = null;
+    if (Activator.getDefault() != null) {
+      // check whether there is a custom test environment factory available
+      try {
+        Class<?> customSerializerFactory = Activator.getDefault().getBundle().loadClass("org.eclipse.scout.testing.client.runner.CustomClientTestEnvironmentFactory");
+        LOG.info("loaded custom object serializer factory: [" + customSerializerFactory + "]");
+        if (!IClientTestEnvironmentFactory.class.isAssignableFrom(customSerializerFactory)) {
+          LOG.warn("custom object serializer factory is not implementing [" + IClientTestEnvironmentFactory.class + "]");
+        }
+        else if (Modifier.isAbstract(customSerializerFactory.getModifiers())) {
+          LOG.warn("custom object serializer factory is an abstract class [" + customSerializerFactory + "]");
+        }
+        else {
+          factory = (IClientTestEnvironmentFactory) customSerializerFactory.newInstance();
+        }
+      }
+      catch (ClassNotFoundException e) {
+        // no custom object serializer factory installed
+      }
+      catch (Exception e) {
+        LOG.warn("Unexpected problem while creating a new instance of custom object serializer factory", e);
+      }
+    }
+    return factory;
+  }
+
 }

@@ -13,14 +13,15 @@ import org.junit.runner.RunWith;
  * @author amo
  */
 @RunWith(TychoSurefireServerTestRunner.class)
-public class ServerSessionTest {
+@TychoSurefireServerTestRunner.ServerTest(runAs = "allen")
+public class UserTest {
 
   @Test
-  public void testServerSession() throws Exception {
+  public void testUser() throws Exception {
     ServerSession session = ServerSession.get();
     Assert.assertNotNull("Session not null", session);
     Assert.assertTrue("Session is active", session.isActive());
-    Assert.assertEquals("Admin User", "admin", session.getUserId());
+    Assert.assertEquals("Allen User", "allen", session.getUserId());
   }
 
 }
