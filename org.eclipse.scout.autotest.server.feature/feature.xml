@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <feature
-      id="org.eclipse.scout.autotest.client.feature"
-      label="org.eclipse.scout.autotest.client.feature"
+      id="org.eclipse.scout.autotest.server.feature"
+      label="Server Feature"
       version="1.0.0.qualifier"
       provider-name="Adrian Moser">
 
    <description url="http://www.example.com/description">
-      TODO: Add all client plugins/fragments from Product here
+      [Enter Feature Description here.]
    </description>
 
    <copyright url="http://www.example.com/copyright">
@@ -18,14 +18,14 @@
    </license>
 
    <plugin
-         id="org.eclipse.scout.net"
+         id="org.apache.derby.jdbc_1082.fragment"
          download-size="0"
          install-size="0"
          version="0.0.0"
-         unpack="false"/>
+         fragment="true"/>
 
    <plugin
-         id="org.eclipse.scout.autotest.client"
+         id="org.eclipse.scout.autotest.server"
          download-size="0"
          install-size="0"
          version="0.0.0"
