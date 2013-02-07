@@ -7,6 +7,7 @@ import org.eclipse.scout.autotest.shared.services.process.CompanyFormData;
 import org.eclipse.scout.autotest.shared.services.process.ICompanyProcessService;
 import org.eclipse.scout.commons.exception.ProcessingException;
 import org.eclipse.scout.commons.exception.VetoException;
+import org.eclipse.scout.commons.holders.NVPair;
 import org.eclipse.scout.rt.server.services.common.jdbc.SQL;
 import org.eclipse.scout.rt.shared.TEXTS;
 import org.eclipse.scout.rt.shared.services.common.security.ACCESS;
@@ -67,5 +68,12 @@ public class CompanyProcessService extends AbstractService implements ICompanyPr
             "WHERE  COMPANY_NR = :companyNr", formData);
 
     return formData;
+  }
+
+  @Override
+  public void delete(CompanyFormData formData) throws ProcessingException {
+    SQL.delete("DELETE COMPANY WHERE COMPANY_NR = :companyNr",
+        new NVPair("companyNr", formData.getCompanyNr())
+        );
   }
 }
