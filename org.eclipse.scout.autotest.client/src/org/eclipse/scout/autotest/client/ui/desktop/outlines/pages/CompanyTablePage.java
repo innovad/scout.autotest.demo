@@ -1,6 +1,7 @@
 package org.eclipse.scout.autotest.client.ui.desktop.outlines.pages;
 
 import org.eclipse.scout.autotest.client.ui.forms.CompanyForm;
+import org.eclipse.scout.autotest.client.ui.searchforms.CompanySearchForm;
 import org.eclipse.scout.autotest.shared.services.outline.IStandardOutlineService;
 import org.eclipse.scout.commons.annotations.Order;
 import org.eclipse.scout.commons.exception.ProcessingException;
@@ -9,6 +10,7 @@ import org.eclipse.scout.rt.client.ui.basic.table.AbstractTable;
 import org.eclipse.scout.rt.client.ui.basic.table.columns.AbstractLongColumn;
 import org.eclipse.scout.rt.client.ui.basic.table.columns.AbstractStringColumn;
 import org.eclipse.scout.rt.client.ui.desktop.outline.pages.AbstractPageWithTable;
+import org.eclipse.scout.rt.client.ui.desktop.outline.pages.ISearchForm;
 import org.eclipse.scout.rt.shared.TEXTS;
 import org.eclipse.scout.rt.shared.services.common.jdbc.SearchFilter;
 import org.eclipse.scout.service.SERVICES;
@@ -111,5 +113,10 @@ public class CompanyTablePage extends AbstractPageWithTable<CompanyTablePage.Tab
       }
     }
 
+  }
+
+  @Override
+  protected Class<? extends ISearchForm> getConfiguredSearchForm() {
+    return CompanySearchForm.class;
   }
 }

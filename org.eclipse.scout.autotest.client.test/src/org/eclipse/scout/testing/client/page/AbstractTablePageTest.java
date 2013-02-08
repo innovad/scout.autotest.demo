@@ -5,20 +5,15 @@ import java.lang.reflect.Method;
 import org.eclipse.scout.commons.exception.ProcessingException;
 import org.eclipse.scout.rt.client.ui.basic.table.columns.IColumn;
 import org.eclipse.scout.rt.client.ui.desktop.outline.pages.IPageWithTable;
-import org.eclipse.scout.rt.client.ui.desktop.outline.pages.ISearchForm;
-import org.eclipse.scout.rt.client.ui.form.fields.IFormField;
-import org.eclipse.scout.rt.client.ui.form.fields.IValueField;
-import org.eclipse.scout.testing.client.form.field.IFormFieldValueProvider;
-import org.eclipse.scout.testing.client.form.field.MaxFormFieldValueProvider;
 import org.eclipse.scout.testing.client.runner.ScoutClientTestRunner;
 import org.junit.Assert;
-import org.junit.Assume;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 
 /**
  * @param <T>
  *          the type of the table page to be tested
+ * @Author Adrian Moser
  */
 @RunWith(ScoutClientTestRunner.class)
 public abstract class AbstractTablePageTest<T extends IPageWithTable<?>> {
@@ -29,11 +24,6 @@ public abstract class AbstractTablePageTest<T extends IPageWithTable<?>> {
     Assert.assertNotNull(page);
     page.nodeAddedNotify();
     page.loadChildren();
-  }
-
-  @Test
-  public void testSearchFormMax() throws ProcessingException {
-    testSearchForm(new MaxFormFieldValueProvider());
   }
 
   @Test
@@ -52,35 +42,6 @@ public abstract class AbstractTablePageTest<T extends IPageWithTable<?>> {
             Assert.fail(e.getMessage());
           }
         }
-      }
-    }
-  }
-
-  private void testSearchForm(IFormFieldValueProvider valueProvider) throws ProcessingException {
-    T tablePage = getTablePage();
-    ISearchForm searchForm = tablePage.getSearchFormInternal();
-
-    // ignore test if there is no search form
-    Assume.assumeNotNull(searchForm);
-
-    for (IFormField field : searchForm.getAllFields()) {
-      if (field instanceof IValueField) {
-        searchForm.doReset();
-        fillMandatoryFields(searchForm, valueProvider);
-        valueProvider.fillValueField((IValueField<?>) field, null);
-        searchForm.resetSearchFilter();
-        tablePage.loadChildren();
-      }
-    }
-  }
-
-  private void fillMandatoryFields(ISearchForm searchForm, IFormFieldValueProvider valueProvider) throws ProcessingException {
-    if (searchForm == null) {
-      return;
-    }
-    for (IFormField field : searchForm.getAllFields()) {
-      if (field instanceof IValueField && ((IValueField<?>) field).isMandatory()) {
-        valueProvider.fillValueField((IValueField<?>) field, null);
       }
     }
   }
