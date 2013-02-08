@@ -13,6 +13,9 @@ import org.junit.runner.RunWith;
 @TychoSurefireClientTestRunner.ClientTest(clientSessionClass = ClientSession.class, runAs = "admin")
 public class ClientSessionTest {
 
+  /**
+   * Test if ClientSession is available, loaded and active
+   */
   @Test
   public void testSession() throws Exception {
     ClientSession clientSession = ClientSession.get();
@@ -21,6 +24,9 @@ public class ClientSessionTest {
     Assert.assertEquals("User", "admin", ClientSession.get().getUserId());
   }
 
+  /**
+   * Test if Desktop is available
+   */
   @Test
   public void testDesktop() throws Exception {
     ClientSession clientSession = ClientSession.get();
@@ -28,6 +34,9 @@ public class ClientSessionTest {
     Assert.assertNotNull("desktop must not be null", desktop);
   }
 
+  /**
+   * Test database access via service. Note: This test makes assumptions about the content of the database.
+   */
   @Test
   public void testTablePage() throws Exception {
     CompanyTablePage page = new CompanyTablePage();

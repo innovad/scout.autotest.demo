@@ -1,5 +1,5 @@
 /**
- * 
+ *
  */
 package org.eclipse.autotest.client;
 
@@ -7,15 +7,18 @@ import junit.framework.Assert;
 
 import org.eclipse.autotest.client.test.TychoSurefireClientTestRunner;
 import org.eclipse.scout.autotest.client.ClientSession;
+import org.eclipse.scout.testing.client.runner.ScoutClientTestRunner.ClientTest;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 
 /**
- * @author amo
+ * You can do user dependent tests using the {@link ClientTest#runAs()} annotation
+ * 
+ * @author Adrian Moser
  */
 @RunWith(TychoSurefireClientTestRunner.class)
 @TychoSurefireClientTestRunner.ClientTest(clientSessionClass = ClientSession.class, runAs = "allen")
-public class UserTest {
+public class UserDependentTest {
 
   @Test
   public void testSession() throws Exception {

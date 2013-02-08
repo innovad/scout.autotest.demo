@@ -6,9 +6,11 @@ package org.eclipse.autotest.client;
 import org.junit.Test;
 
 /**
- * @author amo
+ * A simple plain JUnit test which does not require any Eclipse Scout context
+ * 
+ * @author Adrian Moser
  */
-public class DummyTest {
+public class PlainJUnitTest {
 
   @Test
   public void testName() throws Exception {

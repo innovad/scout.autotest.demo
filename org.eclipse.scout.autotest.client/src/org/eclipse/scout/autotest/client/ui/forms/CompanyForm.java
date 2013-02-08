@@ -30,7 +30,9 @@ public class CompanyForm extends AbstractForm {
   }
 
   @Override
-  protected String getConfiguredTitle() {  return TEXTS.get("Company");}
+  protected String getConfiguredTitle() {
+    return TEXTS.get("Company");
+  }
 
   public CancelButton getCancelButton() {
     return getFieldByClass(CancelButton.class);
@@ -80,6 +82,12 @@ public class CompanyForm extends AbstractForm {
       protected String getConfiguredLabel() {
         return TEXTS.get("ShortName");
       }
+
+      @Override
+      protected int getConfiguredMaxLength() {
+        return 60;
+      }
+
     }
 
     @Order(20.0)
@@ -92,7 +100,7 @@ public class CompanyForm extends AbstractForm {
 
       @Override
       protected int getConfiguredMaxLength() {
-        return 250;
+        return 120;
       }
     }
 
@@ -143,6 +151,7 @@ public class CompanyForm extends AbstractForm {
       CompanyFormData formData = new CompanyFormData();
       exportFormData(formData);
       formData = service.create(formData);
+      importFormData(formData);
     }
   }
 }

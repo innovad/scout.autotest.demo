@@ -72,7 +72,7 @@ public class CompanyProcessService extends AbstractService implements ICompanyPr
 
   @Override
   public void delete(CompanyFormData formData) throws ProcessingException {
-    SQL.delete("DELETE COMPANY WHERE COMPANY_NR = :companyNr",
+    SQL.delete("DELETE FROM COMPANY WHERE COMPANY_NR = :companyNr",
         new NVPair("companyNr", formData.getCompanyNr())
         );
   }

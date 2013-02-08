@@ -1,5 +1,5 @@
 /**
- * 
+ *
  */
 package org.eclipse.autotest.client.test;
 
@@ -22,6 +22,9 @@ import org.osgi.framework.ServiceRegistration;
  * @author amo
  */
 public final class AutotestClientUtility {
+
+  private AutotestClientUtility() {
+  }
 
   private static final IScoutLogger LOG = ScoutLogManager.getLogger(AutotestClientUtility.class);
 

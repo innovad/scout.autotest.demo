@@ -65,11 +65,11 @@
 			<url>${rap.repo.url}</url>
 			<layout>p2</layout>
 		</repository>
-		<repository>
-			<id>Eclipse Scout</id>
-			<url>http://download.eclipse.org/scout/nightly/update</url>
-			<layout>p2</layout>
-		</repository>
+<!-- 		<repository> -->
+<!-- 			<id>Eclipse Scout</id> -->
+<!-- 			<url>http://download.eclipse.org/scout/nightly/update</url> -->
+<!-- 			<layout>p2</layout> -->
+<!-- 		</repository> -->
 	</repositories>
 
 	<build>

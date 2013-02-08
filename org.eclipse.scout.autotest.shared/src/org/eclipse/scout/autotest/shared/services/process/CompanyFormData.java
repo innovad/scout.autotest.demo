@@ -56,7 +56,7 @@ public class CompanyFormData extends AbstractFormData {
     @Override
     protected void initValidationRules(java.util.Map<String, Object> ruleMap) {
       super.initValidationRules(ruleMap);
-      ruleMap.put(ValidationRule.MAX_LENGTH, 250);
+      ruleMap.put(ValidationRule.MAX_LENGTH, 120);
     }
   }
 
@@ -72,7 +72,7 @@ public class CompanyFormData extends AbstractFormData {
     @Override
     protected void initValidationRules(java.util.Map<String, Object> ruleMap) {
       super.initValidationRules(ruleMap);
-      ruleMap.put(ValidationRule.MAX_LENGTH, 4000);
+      ruleMap.put(ValidationRule.MAX_LENGTH, 60);
     }
   }
 }
