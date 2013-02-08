@@ -1,6 +1,7 @@
 package org.eclipse.scout.autotest.client.ui.forms;
 
 import org.eclipse.scout.autotest.client.ui.forms.CompanyForm.MainBox.CancelButton;
+import org.eclipse.scout.autotest.client.ui.forms.CompanyForm.MainBox.InfoButton;
 import org.eclipse.scout.autotest.client.ui.forms.CompanyForm.MainBox.NameField;
 import org.eclipse.scout.autotest.client.ui.forms.CompanyForm.MainBox.OkButton;
 import org.eclipse.scout.autotest.client.ui.forms.CompanyForm.MainBox.ShortNameField;
@@ -13,6 +14,7 @@ import org.eclipse.scout.commons.annotations.Order;
 import org.eclipse.scout.commons.exception.ProcessingException;
 import org.eclipse.scout.rt.client.ui.form.AbstractForm;
 import org.eclipse.scout.rt.client.ui.form.AbstractFormHandler;
+import org.eclipse.scout.rt.client.ui.form.fields.button.AbstractButton;
 import org.eclipse.scout.rt.client.ui.form.fields.button.AbstractCancelButton;
 import org.eclipse.scout.rt.client.ui.form.fields.button.AbstractOkButton;
 import org.eclipse.scout.rt.client.ui.form.fields.groupbox.AbstractGroupBox;
@@ -60,6 +62,10 @@ public class CompanyForm extends AbstractForm {
     return getFieldByClass(NameField.class);
   }
 
+  public InfoButton getInfoButton() {
+    return getFieldByClass(InfoButton.class);
+  }
+
   public MainBox getMainBox() {
     return getFieldByClass(MainBox.class);
   }
@@ -105,10 +111,26 @@ public class CompanyForm extends AbstractForm {
     }
 
     @Order(30.0)
-    public class OkButton extends AbstractOkButton {
+    public class InfoButton extends AbstractButton {
+
+      @Override
+      protected String getConfiguredLabel() {
+        return TEXTS.get("Info");
+      }
+
+      @Override
+      protected void execClickAction() throws ProcessingException {
+        BlockingButtonForm form = new BlockingButtonForm();
+        form.startNew();
+      }
+
     }
 
     @Order(40.0)
+    public class OkButton extends AbstractOkButton {
+    }
+
+    @Order(50.0)
     public class CancelButton extends AbstractCancelButton {
     }
   }

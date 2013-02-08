@@ -12,6 +12,10 @@
             factory="org.eclipse.scout.rt.client.services.ClientProxyServiceFactory"
             class="org.eclipse.scout.autotest.shared.services.process.ICompanyProcessService">
       </proxy>
+      <proxy
+            factory="org.eclipse.scout.rt.client.services.ClientProxyServiceFactory"
+            class="org.eclipse.scout.autotest.shared.services.lookup.ICompanyLookupService">
+      </proxy>
    </extension>
    <extension
          name=""

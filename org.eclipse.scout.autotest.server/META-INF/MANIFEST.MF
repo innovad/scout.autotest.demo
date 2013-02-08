@@ -8,6 +8,7 @@ Bundle-Activator: org.eclipse.scout.autotest.server.Activator
 Export-Package: org.eclipse.scout.autotest.server,
  org.eclipse.scout.autotest.server.services.common.sql,
  org.eclipse.scout.autotest.server.services.custom.security,
+ org.eclipse.scout.autotest.server.services.lookup,
  org.eclipse.scout.autotest.server.services.outline,
  org.eclipse.scout.autotest.server.services.process
 Require-Bundle: org.eclipse.core.runtime,

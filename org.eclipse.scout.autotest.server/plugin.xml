@@ -34,6 +34,11 @@
             class="org.eclipse.scout.autotest.server.services.common.sql.DerbySqlService"
             session="org.eclipse.scout.autotest.server.ServerSession">
       </service>
+      <service
+            factory="org.eclipse.scout.rt.server.services.ServerServiceFactory"
+            class="org.eclipse.scout.autotest.server.services.lookup.CompanyLookupService"
+            session="org.eclipse.scout.autotest.server.ServerSession">
+      </service>
    </extension>
    <extension
          name=""
@@ -100,8 +105,8 @@
          name=""
          point="org.eclipse.core.runtime.products">
       <product
-            name="AutoTest Server"
-            application="org.eclipse.scout.autotest.server.app">
+            application="org.eclipse.scout.autotest.server.app"
+            name="AutoTest Server">
          <property
                name="appName"
                value="AutoTest Server">

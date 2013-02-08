@@ -6,6 +6,7 @@ import org.eclipse.scout.autotest.shared.services.outline.IStandardOutlineServic
 import org.eclipse.scout.commons.annotations.Order;
 import org.eclipse.scout.commons.exception.ProcessingException;
 import org.eclipse.scout.rt.client.ui.action.menu.AbstractMenu;
+import org.eclipse.scout.rt.client.ui.action.menu.IMenu;
 import org.eclipse.scout.rt.client.ui.basic.table.AbstractTable;
 import org.eclipse.scout.rt.client.ui.basic.table.columns.AbstractLongColumn;
 import org.eclipse.scout.rt.client.ui.basic.table.columns.AbstractStringColumn;
@@ -29,6 +30,11 @@ public class CompanyTablePage extends AbstractPageWithTable<CompanyTablePage.Tab
 
   @Order(10.0)
   public class Table extends AbstractTable {
+
+    @Override
+    protected Class<? extends IMenu> getConfiguredDefaultMenu() {
+      return EditMenu.class;
+    }
 
     public ShortNameColumn getShortNameColumn() {
       return getColumnSet().getColumnByClass(ShortNameColumn.class);
@@ -110,6 +116,25 @@ public class CompanyTablePage extends AbstractPageWithTable<CompanyTablePage.Tab
       @Override
       protected String getConfiguredText() {
         return TEXTS.get("New_");
+      }
+    }
+
+    @Order(20.0)
+    public class EditMenu extends AbstractMenu {
+
+      @Override
+      protected void execAction() throws ProcessingException {
+        CompanyForm form = new CompanyForm();
+        form.setCompanyNr(getTable().getCompanyNrColumn().getSelectedValue());
+        form.startModify();
+        if (form.isFormStored()) {
+          reloadPage();
+        }
+      }
+
+      @Override
+      protected String getConfiguredText() {
+        return TEXTS.get("Edit");
       }
     }
 
