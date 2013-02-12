@@ -24,7 +24,7 @@
                 <artifact>
                   <file>org.eclipse.scout.autotest.target</file>
                   <type>target</type>
-                  <classifier>autotest</classifier>
+                  <classifier>platform</classifier>
                 </artifact>
               </artifacts>
             </configuration>

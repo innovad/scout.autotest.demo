@@ -1,14 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<?pde version="3.6"?><target name="Restored Target" sequenceNumber="6">
+<?pde version="3.6"?><target name="Restored Target" sequenceNumber="8">
 <locations>
-<location includeAllPlatforms="false" includeMode="slicer" includeSource="true" type="InstallableUnit">
-<unit id="org.eclipse.platform.feature.group" version="0.0.0"/>
-<unit id="org.eclipse.rcp.feature.group" version="0.0.0"/>
-<unit id="org.eclipse.pde.feature.group" version="0.0.0"/>
-<unit id="org.eclipse.jdt.feature.group" version="0.0.0"/>
-<unit id="org.eclipse.equinox.serverside.sdk.feature.group" version="0.0.0"/>
-<repository location="http://download.eclipse.org/releases/indigo/"/>
-</location>
 <location includeAllPlatforms="false" includeMode="slicer" includeSource="true" type="InstallableUnit">
 <unit id="javax.wsdl" version="1.6.2.v201012040545"/>
 <unit id="javax.wsdl.source" version="1.6.2.v201012040545"/>
@@ -73,11 +65,19 @@
 <repository location="http://download.eclipse.org/rt/rap/1.5/runtime"/>
 </location>
 <location includeAllPlatforms="false" includeMode="slicer" includeSource="true" type="InstallableUnit">
-<unit id="org.eclipse.scout.rt.source.feature.group" version="3.9.0.20130102-0904"/>
-<unit id="org.eclipse.scout.rt.rap.source.feature.group" version="3.9.0.20121219-1012"/>
-<unit id="org.eclipse.scout.rt.rap.testing.source.feature.group" version="3.9.0.20130102-0904"/>
-<unit id="org.eclipse.scout.rt.testing.source.feature.group" version="3.9.0.20130102-0904"/>
-<repository location="http://download.eclipse.org/scout/nightly/update"/>
+<unit id="org.eclipse.platform.feature.group" version="0.0.0"/>
+<unit id="org.eclipse.rcp.feature.group" version="0.0.0"/>
+<unit id="org.eclipse.pde.feature.group" version="0.0.0"/>
+<unit id="org.eclipse.jdt.feature.group" version="0.0.0"/>
+<unit id="org.eclipse.equinox.serverside.sdk.feature.group" version="0.0.0"/>
+<unit id="org.eclipse.equinox.executable.feature.group" version="0.0.0" />
+<repository location="http://download.eclipse.org/releases/indigo/"/>
+</location>
+<location includeAllPlatforms="false" includeMode="slicer" includeSource="true" type="InstallableUnit">
+<unit id="org.eclipse.scout.feature.group" version="3.9.0.20121220-0823"/>
+<unit id="org.eclipse.scout.rt.source.feature.group" version="3.9.0.20130206-1155"/>
+<unit id="org.eclipse.scout.rt.testing.source.feature.group" version="3.9.0.20130206-1155"/>
+<repository location="http://download.eclipse.org/scout/releases/3.9"/>
 </location>
 </locations>
 <environment>
