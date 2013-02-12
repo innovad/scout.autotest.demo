@@ -28,6 +28,7 @@
 		<module>../org.eclipse.scout.autotest.server.test</module>
 		<module>../org.eclipse.scout.autotest.shared.test</module>
 		<module>../org.eclipse.scout.autotest.server.product</module>
+		<module>../org.eclipse.scout.autotest.server.product.war</module>
 		<module>../org.eclipse.scout.autotest.server.test.fragment</module>
 		<module>../org.eclipse.scout.autotest.client.test.fragment</module>
 		<module>../org.eclipse.scout.autotest.shared.test.fragment</module>
