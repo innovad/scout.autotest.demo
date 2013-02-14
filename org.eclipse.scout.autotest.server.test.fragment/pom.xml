@@ -18,16 +18,15 @@
       <plugin>
         <groupId>org.eclipse.tycho</groupId>
         <artifactId>tycho-surefire-plugin</artifactId>
-        <version>${tycho.version}</version>
-    <configuration>
-      <dependencies>
-        <dependency>
-          <type>p2-installable-unit</type>
-          <artifactId>org.eclipse.scout.autotest.client.feature.feature.group</artifactId>
-          <version>0.0.0</version>
-        </dependency>
-      </dependencies>
-    </configuration>
+        <configuration>
+          <dependencies>
+            <dependency>
+              <type>p2-installable-unit</type>
+              <artifactId>org.eclipse.scout.autotest.server.feature.feature.group</artifactId>
+              <version>0.0.0</version>
+            </dependency>
+          </dependencies>
+        </configuration>
       </plugin>
 
       <plugin>
