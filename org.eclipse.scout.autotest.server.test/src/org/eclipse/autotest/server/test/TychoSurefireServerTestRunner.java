@@ -29,6 +29,7 @@ import org.eclipse.scout.rt.testing.server.ITestServerSessionProvider;
 import org.eclipse.scout.rt.testing.server.runner.RunAftersInSeparateScoutServerSession;
 import org.eclipse.scout.rt.testing.server.runner.RunBeforesInSeparateScoutServerSession;
 import org.eclipse.scout.rt.testing.server.runner.ScoutServerJobWrapperStatement;
+import org.eclipse.scout.rt.testing.server.runner.ScoutServerTestRunner;
 import org.eclipse.scout.rt.testing.shared.services.common.exceptionhandler.ProcessingRuntimeExceptionUnwrappingStatement;
 import org.junit.AfterClass;
 import org.junit.BeforeClass;
@@ -78,11 +79,15 @@ public class TychoSurefireServerTestRunner extends BlockJUnit4ClassRunner {
   private static String s_defaultPrincipalName;
   private static ITestServerSessionProvider s_defaultServerSessionProvider = new DefaultTestServerSessionProvider();
   private static final IScoutLogger LOG;
-  private static final IServerTestEnvironmentFactory FACTORY;
+  private static final IServerTestEnvironment FACTORY;
 
   static {
-    LOG = ScoutLogManager.getLogger(TychoSurefireServerTestRunner.class);
+    LOG = ScoutLogManager.getLogger(ScoutServerTestRunner.class);
     FACTORY = createServerTestEnvironmentFactory();
+
+    if (FACTORY != null) {
+      FACTORY.setupGlobalEnvironment();
+    }
   }
 
   private LoginInfo m_loginInfo;
@@ -112,13 +117,9 @@ public class TychoSurefireServerTestRunner extends BlockJUnit4ClassRunner {
   public TychoSurefireServerTestRunner(Class<?> klass) throws InitializationError {
     super(klass);
 
-    // *** Must inject stuff before Server Session instantiation ***
     if (FACTORY != null) {
-      setDefaultServerSessionClass(FACTORY.getDefaultServerSessionClass());
-      setDefaultPrincipalName(FACTORY.getDefaultPrincipalName());
-      FACTORY.setup();
+      FACTORY.setupInstanceEnvironment();
     }
-    // ***
 
     try {
       m_loginInfo = getOrCreateServerSession(klass.getAnnotation(ServerTest.class), null);
@@ -316,28 +317,28 @@ public class TychoSurefireServerTestRunner extends BlockJUnit4ClassRunner {
     }
   }
 
-  private static IServerTestEnvironmentFactory createServerTestEnvironmentFactory() {
-    IServerTestEnvironmentFactory factory = null;
+  private static IServerTestEnvironment createServerTestEnvironmentFactory() {
+    IServerTestEnvironment factory = null;
     if (Activator.getDefault() != null) {
       // check whether there is a custom test environment factory available
       try {
-        Class<?> customSerializerFactory = Activator.getDefault().getBundle().loadClass("org.eclipse.scout.testing.server.runner.CustomServerTestEnvironmentFactory");
-        LOG.info("loaded custom object serializer factory: [" + customSerializerFactory + "]");
-        if (!IServerTestEnvironmentFactory.class.isAssignableFrom(customSerializerFactory)) {
-          LOG.warn("custom object serializer factory is not implementing [" + IServerTestEnvironmentFactory.class + "]");
+        Class<?> customSerializerFactory = Activator.getDefault().getBundle().loadClass("org.eclipse.scout.testing.server.runner.CustomServerTestEnvironment");
+        LOG.info("loaded custom test environment factory: [" + customSerializerFactory + "]");
+        if (!IServerTestEnvironment.class.isAssignableFrom(customSerializerFactory)) {
+          LOG.warn("custom test environment factory is not implementing [" + IServerTestEnvironment.class + "]");
         }
         else if (Modifier.isAbstract(customSerializerFactory.getModifiers())) {
-          LOG.warn("custom object serializer factory is an abstract class [" + customSerializerFactory + "]");
+          LOG.warn("custom test environment factory is an abstract class [" + customSerializerFactory + "]");
         }
         else {
-          factory = (IServerTestEnvironmentFactory) customSerializerFactory.newInstance();
+          factory = (IServerTestEnvironment) customSerializerFactory.newInstance();
         }
       }
       catch (ClassNotFoundException e) {
         // no custom object serializer factory installed
       }
       catch (Exception e) {
-        LOG.warn("Unexpected problem while creating a new instance of custom object serializer factory", e);
+        LOG.warn("Unexpected problem while creating a new instance of custom test environment factory", e);
       }
     }
     return factory;
