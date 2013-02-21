@@ -3,19 +3,19 @@
  */
 package org.eclipse.autotest.client.ui.forms;
 
-import org.eclipse.autotest.client.test.TychoSurefireClientTestRunner;
 import org.eclipse.scout.autotest.client.ui.forms.CompanyForm;
 import org.eclipse.scout.autotest.shared.services.process.CompanyFormData;
 import org.eclipse.scout.autotest.shared.services.process.ICompanyProcessService;
 import org.eclipse.scout.commons.exception.ProcessingException;
 import org.eclipse.scout.service.SERVICES;
 import org.eclipse.scout.testing.client.form.AbstractCRUDFormTest;
+import org.eclipse.scout.testing.client.runner.ScoutClientTestRunner;
 import org.junit.runner.RunWith;
 
 /**
  * @author Adrian Moser
  */
-@RunWith(TychoSurefireClientTestRunner.class)
+@RunWith(ScoutClientTestRunner.class)
 public class CompanyFormTest extends AbstractCRUDFormTest<CompanyForm> {
 
   @Override

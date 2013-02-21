@@ -3,9 +3,9 @@
  */
 package org.eclipse.scout.testing.server.runner;
 
-import org.eclipse.autotest.server.test.IServerTestEnvironment;
-import org.eclipse.autotest.server.test.TychoSurefireServerTestRunner;
 import org.eclipse.scout.autotest.server.ServerSession;
+import org.eclipse.scout.rt.testing.server.runner.IServerTestEnvironment;
+import org.eclipse.scout.rt.testing.server.runner.ScoutServerTestRunner;
 
 /**
  * @author amo
@@ -14,8 +14,8 @@ public class CustomServerTestEnvironment implements IServerTestEnvironment {
 
   @Override
   public void setupGlobalEnvironment() {
-    TychoSurefireServerTestRunner.setDefaultServerSessionClass(ServerSession.class);
-    TychoSurefireServerTestRunner.setDefaultPrincipalName("admin");
+    ScoutServerTestRunner.setDefaultServerSessionClass(ServerSession.class);
+    ScoutServerTestRunner.setDefaultPrincipalName("admin");
   }
 
   @Override

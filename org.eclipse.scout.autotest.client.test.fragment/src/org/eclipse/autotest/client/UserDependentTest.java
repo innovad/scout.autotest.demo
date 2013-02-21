@@ -5,8 +5,8 @@ package org.eclipse.autotest.client;
 
 import junit.framework.Assert;
 
-import org.eclipse.autotest.client.test.TychoSurefireClientTestRunner;
 import org.eclipse.scout.autotest.client.ClientSession;
+import org.eclipse.scout.testing.client.runner.ScoutClientTestRunner;
 import org.eclipse.scout.testing.client.runner.ScoutClientTestRunner.ClientTest;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -16,8 +16,8 @@ import org.junit.runner.RunWith;
  * 
  * @author Adrian Moser
  */
-@RunWith(TychoSurefireClientTestRunner.class)
-@TychoSurefireClientTestRunner.ClientTest(clientSessionClass = ClientSession.class, runAs = "allen")
+@RunWith(ScoutClientTestRunner.class)
+@ScoutClientTestRunner.ClientTest(clientSessionClass = ClientSession.class, runAs = "allen")
 public class UserDependentTest {
 
   @Test

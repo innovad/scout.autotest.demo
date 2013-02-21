@@ -1,10 +1,10 @@
 /**
- * 
+ *
  */
 package org.eclipse.scout.autotest.server.test;
 
-import org.eclipse.autotest.server.test.TychoSurefireServerTestRunner;
 import org.eclipse.scout.autotest.server.ServerSession;
+import org.eclipse.scout.rt.testing.server.runner.ScoutServerTestRunner;
 import org.junit.Assert;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -12,8 +12,8 @@ import org.junit.runner.RunWith;
 /**
  * @author amo
  */
-@RunWith(TychoSurefireServerTestRunner.class)
-@TychoSurefireServerTestRunner.ServerTest(runAs = "allen")
+@RunWith(ScoutServerTestRunner.class)
+@ScoutServerTestRunner.ServerTest(runAs = "allen")
 public class UserTest {
 
   @Test

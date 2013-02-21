@@ -3,13 +3,13 @@
  */
 package org.eclipse.autotest.client;
 
-import org.eclipse.autotest.client.test.TychoSurefireClientTestRunner;
 import org.eclipse.scout.autotest.client.ui.forms.BlockingButtonForm;
 import org.eclipse.scout.autotest.client.ui.forms.CompanyForm;
 import org.eclipse.scout.commons.exception.ProcessingException;
 import org.eclipse.scout.commons.exception.VetoException;
 import org.eclipse.scout.testing.client.blocking.TestingRunnable;
 import org.eclipse.scout.testing.client.form.FormTestUtility;
+import org.eclipse.scout.testing.client.runner.ScoutClientTestRunner;
 import org.junit.Assert;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -17,7 +17,7 @@ import org.junit.runner.RunWith;
 /**
  * @author Adrian Moser
  */
-@RunWith(TychoSurefireClientTestRunner.class)
+@RunWith(ScoutClientTestRunner.class)
 public class BlockingButtonTest {
 
   /**

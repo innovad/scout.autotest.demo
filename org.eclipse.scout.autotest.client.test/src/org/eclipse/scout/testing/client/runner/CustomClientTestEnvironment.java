@@ -4,8 +4,6 @@
 package org.eclipse.scout.testing.client.runner;
 
 import org.eclipse.autotest.client.test.AutotestClientUtility;
-import org.eclipse.autotest.client.test.IClientTestEnvironment;
-import org.eclipse.autotest.client.test.TychoSurefireClientTestRunner;
 import org.eclipse.scout.autotest.client.ClientSession;
 
 /**
@@ -17,7 +15,7 @@ public class CustomClientTestEnvironment implements IClientTestEnvironment {
   public void setupGlobalEnvironment() {
     AutotestClientUtility.installCookieStore();
     AutotestClientUtility.installNetAuthenticator();
-    TychoSurefireClientTestRunner.setDefaultClientSessionClass(ClientSession.class);
+    ScoutClientTestRunner.setDefaultClientSessionClass(ClientSession.class);
   }
 
   @Override
