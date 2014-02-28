@@ -3,11 +3,10 @@
  */
 package org.eclipse.autotest.client;
 
-import junit.framework.Assert;
-
 import org.eclipse.scout.autotest.client.ClientSession;
 import org.eclipse.scout.testing.client.runner.ScoutClientTestRunner;
 import org.eclipse.scout.testing.client.runner.ScoutClientTestRunner.ClientTest;
+import org.junit.Assert;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 

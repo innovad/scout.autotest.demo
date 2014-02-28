@@ -6,7 +6,7 @@
    <configIni use="default">
       <linux>/org.eclipse.scout.autotest.server/products/production/config.ini</linux>
       <macosx>/org.eclipse.scout.autotest.server/products/production/config.ini</macosx>
-      <win32>/org.eclipse.scout.autotest.server/products/production/config.ini</win32>
+      <win32>/org.eclipse.scout.autotest.server.product/config.ini</win32>
    </configIni>
 
    <launcherArgs>
@@ -31,7 +31,7 @@
    <plugins>
       <plugin id="javax.servlet"/>
       <plugin id="org.apache.ant"/>
-      <plugin id="org.apache.derby.jdbc_1082.fragment" fragment="true"/>
+      <plugin id="org.apache.derby.jdbc_1091.fragment" fragment="true"/>
       <plugin id="org.eclipse.core.contenttype"/>
       <plugin id="org.eclipse.core.jobs"/>
       <plugin id="org.eclipse.core.runtime"/>

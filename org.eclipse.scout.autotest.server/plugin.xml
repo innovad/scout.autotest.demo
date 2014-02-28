@@ -26,17 +26,17 @@
       </service>
       <service
             factory="org.eclipse.scout.rt.server.services.ServerServiceFactory"
+            class="org.eclipse.scout.autotest.server.services.lookup.CompanyLookupService"
+            session="org.eclipse.scout.autotest.server.ServerSession">
+      </service>
+      <service
+            factory="org.eclipse.scout.rt.server.services.ServerServiceFactory"
             class="org.eclipse.scout.autotest.server.services.process.CompanyProcessService"
             session="org.eclipse.scout.autotest.server.ServerSession">
       </service>
       <service
             factory="org.eclipse.scout.rt.server.services.ServerServiceFactory"
             class="org.eclipse.scout.autotest.server.services.common.sql.DerbySqlService"
-            session="org.eclipse.scout.autotest.server.ServerSession">
-      </service>
-      <service
-            factory="org.eclipse.scout.rt.server.services.ServerServiceFactory"
-            class="org.eclipse.scout.autotest.server.services.lookup.CompanyLookupService"
             session="org.eclipse.scout.autotest.server.ServerSession">
       </service>
    </extension>
@@ -62,6 +62,10 @@
                name="folder"
                value="/updatesite">
          </init-param>
+      </servlet>
+      <servlet
+            alias="/ajax"
+            class="org.eclipse.scout.autotest.server.AutotestServiceTunnelServlet">
       </servlet>
       <servlet
             alias="/"
@@ -105,8 +109,8 @@
          name=""
          point="org.eclipse.core.runtime.products">
       <product
-            application="org.eclipse.scout.autotest.server.app"
-            name="AutoTest Server">
+            name="AutoTest Server"
+            application="org.eclipse.scout.autotest.server.app">
          <property
                name="appName"
                value="AutoTest Server">

@@ -11,13 +11,14 @@
 package org.eclipse.scout.autotest.client;
 
 import org.eclipse.scout.autotest.client.ui.desktop.Desktop;
+import org.eclipse.scout.commons.UriUtility;
 import org.eclipse.scout.commons.annotations.FormData;
 import org.eclipse.scout.commons.exception.ProcessingException;
 import org.eclipse.scout.commons.logger.IScoutLogger;
 import org.eclipse.scout.commons.logger.ScoutLogManager;
 import org.eclipse.scout.rt.client.AbstractClientSession;
 import org.eclipse.scout.rt.client.ClientJob;
-import org.eclipse.scout.rt.client.servicetunnel.http.HttpServiceTunnel;
+import org.eclipse.scout.rt.client.servicetunnel.http.ClientHttpServiceTunnel;
 import org.eclipse.scout.rt.shared.services.common.code.CODES;
 
 public class ClientSession extends AbstractClientSession {
@@ -41,8 +42,7 @@ public class ClientSession extends AbstractClientSession {
 
   @Override
   public void execLoadSession() throws ProcessingException {
-    String backendUrl = getBundle().getBundleContext().getProperty("server.url");
-    setServiceTunnel(new HttpServiceTunnel(this, backendUrl));
+    setServiceTunnel(new ClientHttpServiceTunnel(this, UriUtility.toUrl(getBundle().getBundleContext().getProperty("server.url"))));
 
     //pre-load all known code types
     CODES.getAllCodeTypes(org.eclipse.scout.autotest.shared.Activator.PLUGIN_ID);

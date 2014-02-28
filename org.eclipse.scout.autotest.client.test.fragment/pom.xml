@@ -40,14 +40,14 @@
           </execution>
         </executions>
         <configuration>
-          <container>
-            <containerId>jetty8x</containerId>
-            <zipUrlInstaller>
-              <url>http://download.eclipse.org/jetty/stable-8/dist/jetty-distribution-8.1.9.v20130131.zip</url>
-              <downloadDir>${project.build.directory}/../../org.eclipse.scout.autotest.parent/downloads</downloadDir>
-              <extractDir>${project.build.directory}/../../org.eclipse.scout.autotest.parent/extracts</extractDir>
-            </zipUrlInstaller>
-          </container>
+            <container>
+              <containerId>jetty8x</containerId>
+              <artifactInstaller>
+                <groupId>org.eclipse.jetty</groupId>
+                <artifactId>jetty-distribution</artifactId>
+                <version>8.1.14.v20131031</version>
+              </artifactInstaller>
+            </container>
           <deployables>
             <deployable>
               <groupId>org.eclipse.scout.autotest</groupId>

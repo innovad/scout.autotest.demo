@@ -13,6 +13,14 @@ package org.eclipse.scout.autotest.ui.swt;
 import java.beans.PropertyChangeEvent;
 import java.beans.PropertyChangeListener;
 
+import org.eclipse.scout.autotest.ui.swt.application.ApplicationActionBarAdvisor;
+import org.eclipse.scout.autotest.ui.swt.editor.ScoutEditorPart;
+import org.eclipse.scout.autotest.ui.swt.views.CenterView;
+import org.eclipse.scout.autotest.ui.swt.views.DetailView;
+import org.eclipse.scout.autotest.ui.swt.views.EastView;
+import org.eclipse.scout.autotest.ui.swt.views.OutlineView;
+import org.eclipse.scout.autotest.ui.swt.views.SearchView;
+import org.eclipse.scout.autotest.ui.swt.views.TableView;
 import org.eclipse.scout.rt.client.AbstractClientSession;
 import org.eclipse.scout.rt.client.ui.desktop.IDesktop;
 import org.eclipse.scout.rt.client.ui.form.IForm;
@@ -24,17 +32,11 @@ import org.eclipse.ui.IWorkbenchWindow;
 import org.eclipse.ui.PlatformUI;
 import org.osgi.framework.Bundle;
 
-import org.eclipse.scout.autotest.ui.swt.editor.ScoutEditorPart;
-import org.eclipse.scout.autotest.ui.swt.views.CenterView;
-import org.eclipse.scout.autotest.ui.swt.views.DetailView;
-import org.eclipse.scout.autotest.ui.swt.views.EastView;
-import org.eclipse.scout.autotest.ui.swt.views.OutlineView;
-import org.eclipse.scout.autotest.ui.swt.views.TableView;
-import org.eclipse.scout.autotest.ui.swt.views.SearchView;
+public class SwtEnvironment extends AbstractSwtEnvironment {
 
-public class SwtEnvironment extends AbstractSwtEnvironment{
+  private ApplicationActionBarAdvisor m_advisor;
 
-  public SwtEnvironment(Bundle bundle,String perspectiveId,Class<? extends AbstractClientSession> clientSessionClazz) {
+  public SwtEnvironment(Bundle bundle, String perspectiveId, Class<? extends AbstractClientSession> clientSessionClazz) {
     super(bundle, perspectiveId, clientSessionClazz);
 
     registerPart(IForm.VIEW_ID_OUTLINE, OutlineView.class.getName());
@@ -49,7 +51,9 @@ public class SwtEnvironment extends AbstractSwtEnvironment{
       @Override
       public void environmentChanged(SwtEnvironmentEvent e) {
         if (e.getType() == SwtEnvironmentEvent.STOPPED) {
-          PlatformUI.getWorkbench().close();
+          if (!PlatformUI.getWorkbench().isClosing()) {
+            PlatformUI.getWorkbench().close();
+          }
         }
       }
     });

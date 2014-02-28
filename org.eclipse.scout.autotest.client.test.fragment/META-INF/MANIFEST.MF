@@ -6,7 +6,7 @@ Bundle-Version: 1.0.0.qualifier
 Bundle-Vendor: Adrian Moser
 Fragment-Host: org.eclipse.scout.autotest.client
 Require-Bundle: org.eclipse.core.runtime,
- org.junit4,
+ org.junit,
  org.eclipse.scout.rt.testing.client,
  org.eclipse.scout.rt.testing.shared,
  org.eclipse.scout.autotest.shared.test,

@@ -6,7 +6,7 @@ Require-Bundle: org.eclipse.core.runtime,org.eclipse.scout.autotest.cl
  t.mobile,org.eclipse.scout.svg.client
 Bundle-Vendor: Eclipse Scout Project
 Bundle-ActivationPolicy: lazy
-Bundle-Version: 1.0.0.201402281127
+Bundle-Version: 1.0.0.201402281630
 Bundle-Name: Client Mobile
 Bundle-Activator: org.eclipse.scout.autotest.client.mobile.Activator
 Bundle-ManifestVersion: 2
