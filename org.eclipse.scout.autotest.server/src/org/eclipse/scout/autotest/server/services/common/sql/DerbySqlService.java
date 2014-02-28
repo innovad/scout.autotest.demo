@@ -6,9 +6,9 @@ import org.eclipse.core.runtime.Platform;
 import org.eclipse.scout.autotest.server.Activator;
 import org.eclipse.scout.commons.StringUtility;
 import org.eclipse.scout.rt.services.common.jdbc.AbstractDerbySqlService;
-import org.eclipse.scout.service.IService2;
+import org.eclipse.scout.service.IService;
 
-public class DerbySqlService extends AbstractDerbySqlService implements IService2 {
+public class DerbySqlService extends AbstractDerbySqlService implements IService {
 
   @Override
   protected String getConfiguredJdbcMappingName() {
